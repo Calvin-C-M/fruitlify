@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Classification {% endblock %}
+
+{% block content %}
+
+<h1>Classification Page</h1>
+<section>
+    <form action="/classify" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="fruit-image" class="form-label">Masukkan gambar buah</label>
+            <input id="fruit-image" name="fruit-image" type="file" class="form-control">
+        </div>
+        <button class="btn btn-primary" type="submit">Cek Kualitas</button>
+    </form>
+</section>
+
+{% endblock %}
+

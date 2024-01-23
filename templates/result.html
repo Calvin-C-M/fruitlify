@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %} Result {% endblock %}
+
+{% block content %}
+
+<h1>Classification Result</h1>
+
+<h2>Tabel Prediksi Buah</h2>
+<table class="table table-striped">
+    <thead>
+        <th>Class Name</th>
+        <th>Prediction</th>
+    </thead>
+    <tbody>
+        {% for i in range(0,12) %}
+            <tr>
+                <td>{{class_names[i]}}</td>
+                <td>{{predict[i]}}%</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Hasil Prediksi: {{fruit_class}}</h2>
+
+<section>
+    <form action="/feedback" method="POST">
+        <div class="mb-3">            
+            <label for="" class="form-label">Apakah menurut anda hasil klasifikasi benar?</label>
+            <div class="form-check">
+                <input type="radio" name="feedback-validation" id="yes" class="form-check-input" value="yes">
+                <label for="yes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="feedback-validation" id="no" class="form-check-input" value="no">
+                <label for="no" class="form-check-label">No</label>
+            </div>
+        </div>
+        <div class="mb-3">            
+            <label for="" class="form-label">Jika salah, menurut anda hasil prediksi yang benar apa?</label>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="apple-bad" class="form-check-input" value="apple-bad">
+                <label for="apple-bad" class="form-check-label">Apple Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="apple-good" class="form-check-input" value="apple-good">
+                <label for="apple-good" class="form-check-label">Apple Good</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="banana-bad" class="form-check-input" value="banana-bad">
+                <label for="banana-bad" class="form-check-label">Banana Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="banana-good" class="form-check-input" value="banana-good">
+                <label for="banana-good" class="form-check-label">Banana Good</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="guava-bad" class="form-check-input" value="guava-bad">
+                <label for="guava-bad" class="form-check-label">Guava Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="guava-good" class="form-check-input" value="guava-good">
+                <label for="guava-good" class="form-check-label">Guava Good</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="lime-bad" class="form-check-input" value="lime-bad">
+                <label for="lime-bad" class="form-check-label">Lime Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="lime-good" class="form-check-input" value="lime-good">
+                <label for="lime-good" class="form-check-label">Lime Good</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="orange-bad" class="form-check-input" value="orange-bad">
+                <label for="orange-bad" class="form-check-label">Orange Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="orange-good" class="form-check-input" value="orange-good">
+                <label for="orange-good" class="form-check-label">Orange Good</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="pomegranate-bad" class="form-check-input" value="pomegranate-bad">
+                <label for="pomegranate-bad" class="form-check-label">Pomegranate Bad</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="correct-predict" id="pomegranate-good" class="form-check-input" value="pomegranate-good">
+                <label for="pomegranate-good" class="form-check-label">Pomegranate Good</label>
+            </div>
+        </div>
+        <div id="actions">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <a href="/classification" class="btn btn-outline-secondary">Kembali</a>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
