@@ -68,4 +68,4 @@ def feedback() :
     return render_template("feedback.html", feed=feedback, correct=correct_predict)
 
 if __name__ == "__main__" :
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
