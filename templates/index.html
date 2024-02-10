@@ -28,11 +28,11 @@
 <section id="contoh-gambar" class="container">
     <section>
         <h2>Contoh Buah Bagus</h2>
-        <img src="/img/good_apple.jpg" alt="Buah Bagus">
+        <img src="{{url_for('static', filename='img/good_apple.jpg')}}" alt="Buah Bagus">
     </section>
     <section>
         <h2>Contoh Buah Busuk</h2>
-        <img src="/img/bad_apple.JPG" alt="Buah Busuk">
+        <img src="{{url_for('static', filename='/img/bad_apple.JPG')}}" alt="Buah Busuk">
     </section>
 </section>
 
