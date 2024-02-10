@@ -52,16 +52,17 @@ def classify() :
     
     predicted_values = [round(values * 100, 2) for values in predictions[0]]
     
-    return render_template("result.html", class_names=index_of_classes, predict=predicted_values, fruit_class=class_name)
+    return render_template("result.html", class_names=index_of_classes, predict=predicted_values, fruit_class=class_name, fruit_filename=fruit_image.filename)
 
 @app.route("/feedback", methods=['POST'])
 def feedback() :
     form = request.form
     feedback = 1 if form['feedback-validation'] == "yes" else 0
     correct_predict = form['correct-predict']
+    filename = form['filename']
     
     cur = mysql.connection.cursor()
-    cur.execute(f"INSERT INTO feedback(validation, actual) VALUES ({feedback}, '{correct_predict}')")
+    cur.execute(f"INSERT INTO feedback(validation, actual, filename) VALUES ({feedback}, '{correct_predict}', '{filename}')")
     mysql.connection.commit()
     cur.close()
     
