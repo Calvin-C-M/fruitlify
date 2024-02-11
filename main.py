@@ -3,8 +3,6 @@ from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
 from classification import get_prediction
 import numpy as np
-from dotenv import load_dotenv
-load_dotenv()
 
 index_of_classes = {
     0: "Apple Bad",
@@ -23,10 +21,10 @@ index_of_classes = {
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = os.getenv("MYSQL_ENDPOINT")
-app.config['MYSQL_USER'] = os.getenv("MYSQL_USER")
-app.config['MYSQL_PASSWORD'] = os.getenv("MYSQL_PASSWORD")
-app.config['MYSQL_DB'] = os.getenv("MYSQL_DB")
+app.config['MYSQL_HOST'] = "klasifikasi-kualitas-buah.chyguwmqo67v.ap-southeast-1.rds.amazonaws.com"
+app.config['MYSQL_USER'] = "admin"
+app.config['MYSQL_PASSWORD'] = "calvin_admin"
+app.config['MYSQL_DB'] = "fruit_classification"
 
 mysql = MySQL(app)
 
